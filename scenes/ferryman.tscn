@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjlaqm0m7hv8v"]
+
+[ext_resource type="Texture2D" uid="uid://b0juhyt75uxj6" path="res://assets/YeOldyNecroGuy.png" id="1_apilf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox5a5"]
+atlas = ExtResource("1_apilf")
+region = Rect2(41, 35, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgugs"]
+atlas = ExtResource("1_apilf")
+region = Rect2(61, 35, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpugs"]
+atlas = ExtResource("1_apilf")
+region = Rect2(81, 35, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16agh"]
+atlas = ExtResource("1_apilf")
+region = Rect2(101, 35, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j44fu"]
+atlas = ExtResource("1_apilf")
+region = Rect2(121, 35, 20, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxw45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox5a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgugs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpugs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16agh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j44fu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qckj"]
+radius = 5.0
+
+[node name="ferryman" type="CharacterBody2D"]
+collision_layer = 2
+platform_floor_layers = 4294967041
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(-4.17233e-07, -2.625)
+scale = Vector2(1, 0.878571)
+sprite_frames = SubResource("SpriteFrames_xxw45")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -5)
+shape = SubResource("CircleShape2D_2qckj")
